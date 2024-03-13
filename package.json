@@ -1,35 +1,55 @@
 {
-  "name": "template-fooddelivery-bootstrap-html",
-  "version": "1.0.0",
-  "description": "Food Delivery HTML Template",
-  "author": "Sal",
-  "license": "MIT",
-  "homepage": "https://bootstrapstarter.com/bootstrap-templates/template-fooddelivery-bootstrap-html/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wowthemesnet/template-fooddelivery-bootstrap-html.git"
-  },
-  "scripts": {
-    "start": "gulp",
-    "dev": "gulp serve",
-    "prod": "cross-env NODE_ENV=prod gulp"
-  },
-  "devDependencies": {
-    "bootstrap": "^4.4.1",
-    "browser-sync": "^2.26.3",
-    "cross-env": "^7.0.2",
-    "gulp": "^4.0.2",
-    "gulp-clean": "^0.4.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-cssmin": "^0.2.0",
-    "gulp-html-partial": "^1.0.1",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-js-import": "^1.0.6",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.2"
-  },
-  "dependencies": {}
+	"name": "app",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"test": "npm run test:integration && npm run test:unit",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write .",
+		"test:integration": "playwright test",
+		"test:unit": "vitest",
+		"prepare": "husky"
+	},
+	"devDependencies": {
+		"@playwright/test": "^1.28.1",
+		"@sveltejs/adapter-static": "^3.0.1",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@types/aos": "^3.0.7",
+		"@types/eslint": "^8.56.0",
+		"@typescript-eslint/eslint-plugin": "^7.0.0",
+		"@typescript-eslint/parser": "^7.0.0",
+		"aos": "2.3.1",
+		"bootstrap": "4.4.1",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-svelte": "^2.35.1",
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.2",
+		"prettier": "^3.1.1",
+		"prettier-plugin-svelte": "^3.1.2",
+		"sass": "1.22.9",
+		"svelte": "^4.2.7",
+		"svelte-check": "^3.6.0",
+		"tslib": "^2.4.1",
+		"typescript": "^5.0.0",
+		"vite": "^5.0.3",
+		"vite-plugin-iso-import": "^1.1.0",
+		"vitest": "^1.2.0"
+	},
+	"type": "module",
+	"lint-staged": {
+		"*.{js,ts,svelte}": [
+			"prettier --write",
+			"eslint --ext js,ts,svelte --quiet --fix --"
+		],
+		"*.{md,mdx,cjs,mjs,yml,yaml,html,mjml,css,scss,json}": [
+			"prettier --write"
+		]
+	}
 }
