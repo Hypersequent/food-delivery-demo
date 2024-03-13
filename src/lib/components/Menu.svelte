@@ -1,215 +1,120 @@
+<script lang="ts">
+	import { base } from '$app/paths'
+	import items from '$lib/items'
+
+	function menu(node: HTMLElement) {
+		let selected = 'pizzaMenu'
+		const buttons = node.querySelectorAll('.button')
+		const menus = document.querySelectorAll('div.menu')
+		const onClick = (e: Event) => {
+			;[...buttons].forEach((button) => {
+				button.classList.remove('button--is-active')
+			})
+			e.preventDefault()
+
+			const target = e.target as HTMLAnchorElement
+			const id = target.getAttribute('data-target') as string
+			target.classList.add('button--is-active')
+			selectMenu(id)
+		}
+
+		const selectMenu = (id: string) => {
+			;[...menus].forEach((menu) => {
+				if (menu.id === id) {
+					menu.classList.add('menu--is-visible')
+				} else {
+					menu.classList.remove('menu--is-visible')
+				}
+			})
+		}
+		buttons.forEach((button) => {
+			button.addEventListener('click', onClick)
+		})
+
+		selectMenu(selected)
+		return {
+			destroy() {
+				buttons.forEach((button) => {
+					button.removeEventListener('click', onClick)
+				})
+			},
+		}
+	}
+</script>
+
 <div class="block menu1">
-	<div class="buttons-container">
-		<a href="#/" class="button button--is-active" data-target="pizzaMenu">Pizzas</a>
-		<a href="#/" class="button" data-target="coffeeMenu">Drinks</a>
-		<a href="#/" class="button" data-target="noodlesMenu">Desserts</a>
+	<div class="buttons-container" use:menu>
+		<a href="/" role="button" class="button button--is-active" data-target="pizzaMenu">Pizzas</a>
+		<a href="/" role="button" class="button" data-target="coffeeMenu">Drinks</a>
+		<a href="/" role="button" class="button" data-target="noodlesMenu">Desserts</a>
 	</div>
 
 	<!-- Start Pizza Menu -->
-	<div class="menu menu--is-visible" id="pizzaMenu" data-aos="fade-up">
-		<div class="item row align-items-center">
-			<div class="col-sm-3 pr-5">
-				<img class="product-img" src="./img/pizza-1.png" alt="pizza1" />
-			</div>
-			<div class="details col-sm-9">
-				<div class="item__header">
-					<h3 class="item__title">Cheese Pizza</h3>
-					<span class="item__dots"></span>
-					<span class="item__price">$15</span>
+	<div class="menu" id="pizzaMenu" data-aos="fade-up">
+		{#each items.pizzas as pizza}
+			<div class="item row align-items-center">
+				<div class="col-sm-3 pr-5">
+					<img class="product-img" src={base + pizza.imageUrl} alt={pizza.title} />
 				</div>
-				<p class="item__description">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque
-					nobis ut.
-				</p>
-				<button
-					class="btn btn-sm btn-outline-primary my-cart-btn"
-					data-id="1"
-					data-name="Cheese Pizza"
-					data-price="15"
-					data-quantity="1"
-					data-image="./img/pizza-1.png">Add to cart</button
-				>
-			</div>
-		</div>
-
-		<div class="item row align-items-center">
-			<div class="col-sm-3 pr-5">
-				<img class="product-img" src="./img/pizza-2.png" alt="pizza2" />
-			</div>
-			<div class="details col-sm-9">
-				<div class="item__header">
-					<h3 class="item__title">Hot Pastrami</h3>
-					<span class="item__dots"></span>
-					<span class="item__price">$25</span>
+				<div class="details col-sm-9">
+					<div class="item__header">
+						<h3 class="item__title">{pizza.title}</h3>
+						<span class="item__dots"></span>
+						<span class="item__price">${pizza.price}</span>
+					</div>
+					<p class="item__description">
+						{pizza.description}
+					</p>
+					<button class="btn btn-sm btn-outline-primary my-cart-btn" data-id={pizza.id}
+						>Add to cart</button
+					>
 				</div>
-				<p class="item__description">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque
-					nobis ut.
-				</p>
-				<button
-					class="btn btn-sm btn-outline-primary my-cart-btn"
-					data-id="2"
-					data-name="Hot Pastrami"
-					data-price="25"
-					data-quantity="1"
-					data-image="./img/pizza-2.png">Add to cart</button
-				>
 			</div>
-		</div>
-
-		<div class="item row align-items-center">
-			<div class="col-sm-3 pr-5">
-				<img class="product-img" src="./img/pizza-3.png" alt="pizza3" />
-			</div>
-			<div class="details col-sm-9">
-				<div class="item__header">
-					<h3 class="item__title">Classic Pizza</h3>
-					<span class="item__dots"></span>
-					<span class="item__price">$20</span>
-				</div>
-				<p class="item__description">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque
-					nobis ut.
-				</p>
-				<button
-					class="btn btn-sm btn-outline-primary my-cart-btn"
-					data-id="3"
-					data-name="Classic Pizza"
-					data-price="20"
-					data-quantity="1"
-					data-image="./img/pizza-3.png">Add to cart</button
-				>
-			</div>
-		</div>
-
-		<div class="item row align-items-center">
-			<div class="col-sm-3 pr-5">
-				<img class="product-img" src="./img/pizza-4.png" alt="pizza4" />
-			</div>
-			<div class="details col-sm-9">
-				<div class="item__header">
-					<h3 class="item__title">Country Pizza</h3>
-					<span class="item__dots"></span>
-					<span class="item__price">$17</span>
-				</div>
-				<p class="item__description">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque
-					nobis ut.
-				</p>
-				<button
-					class="btn btn-sm btn-outline-primary my-cart-btn"
-					data-id="4"
-					data-name="Country Pizza"
-					data-price="17"
-					data-quantity="1"
-					data-image="./img/pizza-4.png">Add to cart</button
-				>
-			</div>
-		</div>
+		{/each}
 	</div>
 	<!-- End Pizza Menu -->
 
 	<!-- Start Coffee Menu -->
-	<div class="menu" id="coffeeMenu">
-		<div class="item">
-			<div class="item__header">
-				<h3 class="item__title">Cappuccino</h3>
-				<span class="item__dots"></span>
-				<span class="item__price">$4</span>
+	<div class="menu" id="coffeeMenu" data-aos="fade-up">
+		{#each items.drinks as drink}
+			<div class="item row align-items-center">
+				<div class="col">
+					<div class="item__header">
+						<h3 class="item__title">{drink.title}</h3>
+						<span class="item__dots"></span>
+						<span class="item__price">${drink.price}</span>
+					</div>
+					<p class="item__description">
+						{drink.description}
+					</p>
+					<button class="btn btn-sm btn-outline-primary my-cart-btn" data-id={drink.id}
+						>Add to cart</button
+					>
+				</div>
 			</div>
-			<p class="item__description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque
-				nobis ut.
-			</p>
-		</div>
-
-		<div class="item">
-			<div class="item__header">
-				<h3 class="item__title">Iced Coffee</h3>
-				<span class="item__dots"></span>
-				<span class="item__price">$5</span>
-			</div>
-			<p class="item__description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque
-				nobis ut.
-			</p>
-		</div>
-
-		<div class="item">
-			<div class="item__header">
-				<h3 class="item__title">Café Latte</h3>
-				<span class="item__dots"></span>
-				<span class="item__price">$3</span>
-			</div>
-			<p class="item__description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque
-				nobis ut.
-			</p>
-		</div>
-
-		<div class="item">
-			<div class="item__header">
-				<h3 class="item__title">Espresso</h3>
-				<span class="item__dots"></span>
-				<span class="item__price">$4</span>
-			</div>
-			<p class="item__description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque
-				nobis ut.
-			</p>
-		</div>
+		{/each}
 	</div>
 	<!-- End Coffee Menu -->
 
 	<!-- Start Noodles Menu -->
-	<div class="menu" id="noodlesMenu">
-		<div class="item">
-			<div class="item__header">
-				<h3 class="item__title">Chicken Noodles</h3>
-				<span class="item__dots"></span>
-				<span class="item__price">$16</span>
+	<div class="menu" id="noodlesMenu" data-aos="fade-up">
+		{#each items.desserts as dessert}
+			<div class="item row align-items-center">
+				<div class="col">
+					<div class="item__header">
+						<h3 class="item__title">{dessert.title}</h3>
+						<span class="item__dots"></span>
+						<span class="item__price">${dessert.price}</span>
+					</div>
+					<p class="item__description">
+						{dessert.description}
+					</p>
+					<button class="btn btn-sm btn-outline-primary my-cart-btn" data-id={dessert.id}
+						>Add to cart</button
+					>
+				</div>
 			</div>
-			<p class="item__description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque
-				nobis ut.
-			</p>
-		</div>
-
-		<div class="item">
-			<div class="item__header">
-				<h3 class="item__title">Egg Noodles</h3>
-				<span class="item__dots"></span>
-				<span class="item__price">$12</span>
-			</div>
-			<p class="item__description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque
-				nobis ut.
-			</p>
-		</div>
-
-		<div class="item">
-			<div class="item__header">
-				<h3 class="item__title">Veg Noodles</h3>
-				<span class="item__dots"></span>
-				<span class="item__price">$10</span>
-			</div>
-			<p class="item__description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque
-				nobis ut.
-			</p>
-		</div>
-
-		<div class="item">
-			<div class="item__header">
-				<h3 class="item__title">Chuck Norris Noodles</h3>
-				<span class="item__dots"></span>
-				<span class="item__price">$20</span>
-			</div>
-			<p class="item__description">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque
-				nobis ut.
-			</p>
-		</div>
+		{/each}
 	</div>
 	<!-- End Noodles Menu -->
 </div>
