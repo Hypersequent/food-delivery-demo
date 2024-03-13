@@ -1,3 +1,11 @@
+type Item = {
+	id: string
+	title: string
+	price: number
+	description: string
+	imageUrl?: string
+}
+
 export default {
 	pizzas: [
 		{
@@ -93,4 +101,4 @@ export default {
 				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.',
 		},
 	],
-}
+} as Record<string, Item[]>

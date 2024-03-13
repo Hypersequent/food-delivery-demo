@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths'
 </script>
 
 <body>
@@ -15,7 +16,7 @@
 							data-aos="fade-up"
 							data-aos-duration="1000"
 							data-aos-offset="0"
-							src="https://images.unsplash.com/photo-1532509334149-d2130d74253c?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
+							src="{base}/img/featured.jpg"
 							alt="featured-img"
 						/>
 					</div>

@@ -2,7 +2,7 @@
 	import { base } from '$app/paths'
 </script>
 
-<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white">
+<nav class="navbar navbar-expand-md navbar-light sticky-top bg-white">
 	<a class="navbar-brand" href="/"><img src="{base}/img/logo.png" alt="logo" /></a>
 	<button
 		class="navbar-toggler"

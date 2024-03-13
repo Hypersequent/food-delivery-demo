@@ -1,7 +1,11 @@
+<script lang="ts">
+	import { base } from '$app/paths'
+</script>
+
 <div
 	class="block hero1 my-auto"
 	style="
-		background-image: url(https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80);
+		background-image: url({base}/img/featured.jpg);
 	"
 >
 	<div class="container-fluid text-center">

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths'
 	import items from '$lib/items'
+	import cart from '../cart'
 
 	function menu(node: HTMLElement) {
 		let selected = 'pizzaMenu'
@@ -40,6 +41,10 @@
 			},
 		}
 	}
+
+	function addToCart(id: string) {
+		cart.add(id)
+	}
 </script>
 
 <div class="block menu1">
@@ -65,8 +70,9 @@
 					<p class="item__description">
 						{pizza.description}
 					</p>
-					<button class="btn btn-sm btn-outline-primary my-cart-btn" data-id={pizza.id}
-						>Add to cart</button
+					<button
+						class="btn btn-sm btn-outline-primary my-cart-btn"
+						on:click={() => addToCart(pizza.id)}>Add to cart</button
 					>
 				</div>
 			</div>
@@ -87,8 +93,9 @@
 					<p class="item__description">
 						{drink.description}
 					</p>
-					<button class="btn btn-sm btn-outline-primary my-cart-btn" data-id={drink.id}
-						>Add to cart</button
+					<button
+						class="btn btn-sm btn-outline-primary my-cart-btn"
+						on:click={() => addToCart(drink.id)}>Add to cart</button
 					>
 				</div>
 			</div>
@@ -109,8 +116,9 @@
 					<p class="item__description">
 						{dessert.description}
 					</p>
-					<button class="btn btn-sm btn-outline-primary my-cart-btn" data-id={dessert.id}
-						>Add to cart</button
+					<button
+						class="btn btn-sm btn-outline-primary my-cart-btn"
+						on:click={() => addToCart(dessert.id)}>Add to cart</button
 					>
 				</div>
 			</div>
