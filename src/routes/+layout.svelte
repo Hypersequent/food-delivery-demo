@@ -14,7 +14,6 @@
 			document.startViewTransition(async () => {
 				resolve()
 				await navigation.complete
-				AOS.refresh()
 			})
 		})
 	})

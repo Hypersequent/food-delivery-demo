@@ -9,22 +9,10 @@
 				<h1 class="display-4 text-center">Welcome to Bistrot Français</h1>
 
 				<div class="featured-img mt-5 mb-5">
-					<img
-						data-aos="fade-up"
-						data-aos-duration="1000"
-						data-aos-offset="0"
-						src="{assets}/img/featured.jpg"
-						alt="Elegant French Cuisine"
-					/>
+					<img src="{assets}/img/featured.jpg" alt="Elegant French Cuisine" />
 				</div>
 
-				<article
-					class="article"
-					data-aos="fade-up"
-					data-aos-duration="1000"
-					data-aos-offset="0"
-					data-aos-delay="200"
-				>
+				<article class="article">
 					<p>
 						Welcome to <strong>Bistrot Français</strong>, where the elegance of French cuisine meets
 						the convenience of your doorstep. Imagine the delicate flavors of Paris, the rustic
