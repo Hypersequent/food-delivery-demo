@@ -11,6 +11,7 @@
 <script lang="ts">
 	import { assets, base } from '$app/paths'
 	import cart from '../cart'
+	import { scale } from 'svelte/transition'
 	const count = cart.count
 
 	let show = false
@@ -78,7 +79,9 @@
 		show = true
 	}}
 >
-	<img src="{base}/img/cart.svg" style="width: 20px" alt="cart" />
+	{#key $count}
+		<img in:scale src="{base}/img/cart.svg" style="width: 20px" alt="cart" />
+	{/key}
 	<span class="badge badge-notify my-cart-badge">{$count}</span>
 </div>
 

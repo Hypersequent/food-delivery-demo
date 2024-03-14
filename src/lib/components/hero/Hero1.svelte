@@ -18,7 +18,7 @@
 			Bistrot Français
 		</h1>
 		<p class="lead text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-			We are closed for the moment, but we will still deliver food at your place!
+			Elegance of French Cuisine Delivered Directly to Your Doorstep!
 		</p>
 		<a
 			href="#menu"

@@ -7,7 +7,7 @@ test('Test index page', async ({ page }) => {
 	await expect(page).toHaveTitle(/Food Delivery/)
 	await expect(page.getByRole('heading', { name: 'Bistrot Français' })).toBeVisible()
 	await expect(
-		page.getByText('We are closed for the moment, but we will still deliver food at your place!')
+		page.getByText('Elegance of French Cuisine Delivered Directly to Your Doorstep!')
 	).toBeVisible()
 
 	await expect(page.getByRole('link', { name: "View Today's Menu" })).toBeVisible()

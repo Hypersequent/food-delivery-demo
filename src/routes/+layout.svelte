@@ -5,8 +5,18 @@
 	import Navbar from '$lib/components/Navbar.svelte'
 	import '$lib/styles/style.scss'
 	import 'aos/dist/aos.css'
-	import { afterNavigate } from '$app/navigation'
+	import { afterNavigate, onNavigate } from '$app/navigation'
 
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve()
+				await navigation.complete
+			})
+		})
+	})
 	onMount(() => {
 		AOS.init()
 	})
