@@ -4,7 +4,7 @@
 </script>
 
 <nav class="navbar navbar-expand-md navbar-light sticky-top bg-white">
-	<a class="navbar-brand" href="{base}/"><img src="{assets}/img/logo.png" alt="logo" /></a>
+	<a class="navbar-brand" href="{base}/"><img src="{assets}/img/logo.jpg" alt="logo" /></a>
 	<button
 		class="navbar-toggler"
 		type="button"
