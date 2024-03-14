@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths'
+	import { assets, base } from '$app/paths'
 	import items from '$lib/items'
 	import cart from '../cart'
 
@@ -61,7 +61,7 @@
 		{#each items.pizzas as pizza}
 			<div class="item row align-items-center">
 				<div class="col-sm-3 pr-5">
-					<img class="product-img" src={base + pizza.imageUrl} alt={pizza.title} />
+					<img class="product-img" src={assets + pizza.imageUrl} alt={pizza.title} />
 				</div>
 				<div class="details col-sm-9">
 					<div class="item__header">

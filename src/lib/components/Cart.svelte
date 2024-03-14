@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-	import { base } from '$app/paths'
+	import { assets, base } from '$app/paths'
 	import cart from '../cart'
 	const count = cart.count
 
@@ -109,7 +109,7 @@
 								<div class="row py-2 align-items-center border-bottom">
 									<div class="col-2">
 										{#if item.imageUrl}
-											<img src={item.imageUrl} alt={item.title} style="width: 50px" />
+											<img src={assets + item.imageUrl} alt={item.title} style="width: 50px" />
 										{/if}
 									</div>
 									<div class="col-3">

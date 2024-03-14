@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths'
+	import { assets } from '$app/paths'
 </script>
 
 <body>
@@ -16,7 +16,7 @@
 							data-aos="fade-up"
 							data-aos-duration="1000"
 							data-aos-offset="0"
-							src="{base}/img/featured.jpg"
+							src="{assets}/img/featured.jpg"
 							alt="featured-img"
 						/>
 					</div>

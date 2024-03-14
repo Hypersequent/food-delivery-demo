@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { base } from '$app/paths'
+	import { assets } from '$app/paths'
 </script>
 
 <div
 	class="block hero1 my-auto"
 	style="
-		background-image: url({base}/img/featured.jpg);
+		background-image: url({assets}/img/featured.jpg);
 	"
 >
 	<div class="container-fluid text-center">

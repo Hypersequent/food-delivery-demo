@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { assets } from '$app/paths'
 	import Hero2 from '$src/lib/components/hero/Hero2.svelte'
 	import type { PageData } from './$types'
 
@@ -38,7 +39,7 @@
 									<td>
 										{#if item.imageUrl}
 											<img
-												src={item.imageUrl}
+												src={assets + item.imageUrl}
 												class="img-fluid"
 												alt={item.title}
 												style="width: 50px"
