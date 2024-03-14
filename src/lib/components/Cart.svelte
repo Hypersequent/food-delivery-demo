@@ -137,7 +137,7 @@
 							{/each}
 							<div class="row px-2 pt-3">
 								<div class="col-6">Total</div>
-								<div class="col-2 text-right font-weight-bold">
+								<div class="col-2 text-right font-weight-bold" data-testid="cartTotal">
 									${total}
 								</div>
 							</div>

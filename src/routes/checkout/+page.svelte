@@ -55,7 +55,7 @@
 								<td>Total</td>
 								<td></td>
 								<td></td>
-								<td class="font-weight-bold">${data.total}</td>
+								<td class="font-weight-bold" data-testid="cartTotal">${data.total}</td>
 							</tr>
 						</tbody>
 					</table>
