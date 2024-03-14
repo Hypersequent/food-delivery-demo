@@ -4,7 +4,7 @@
 </script>
 
 <nav class="navbar navbar-expand-md navbar-light sticky-top bg-white">
-	<a class="navbar-brand" href="/"><img src="{base}/img/logo.png" alt="logo" /></a>
+	<a class="navbar-brand" href="{base}/"><img src="{base}/img/logo.png" alt="logo" /></a>
 	<button
 		class="navbar-toggler"
 		type="button"
@@ -19,13 +19,13 @@
 	<div class="collapse navbar-collapse" class:show id="navbarsExampleDefault">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active">
-				<a class="nav-link" href="/">Welcome</a>
+				<a class="nav-link" href="{base}/">Welcome</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/#menu">Today's Menu</a>
+				<a class="nav-link" href="{base}/#menu">Today's Menu</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="/about">About us</a>
+				<a class="nav-link" href="{base}/about">About us</a>
 			</li>
 		</ul>
 	</div>

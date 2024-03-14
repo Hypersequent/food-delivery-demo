@@ -49,9 +49,11 @@
 
 <div class="block menu1">
 	<div class="buttons-container" use:menu>
-		<a href="/" role="button" class="button button--is-active" data-target="pizzaMenu">Pizzas</a>
-		<a href="/" role="button" class="button" data-target="coffeeMenu">Drinks</a>
-		<a href="/" role="button" class="button" data-target="noodlesMenu">Desserts</a>
+		<a href="{base}/" role="button" class="button button--is-active" data-target="pizzaMenu"
+			>Pizzas</a
+		>
+		<a href="{base}/" role="button" class="button" data-target="coffeeMenu">Drinks</a>
+		<a href="{base}/" role="button" class="button" data-target="noodlesMenu">Desserts</a>
 	</div>
 
 	<!-- Start Pizza Menu -->

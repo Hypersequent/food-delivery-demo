@@ -35,20 +35,27 @@
 						<tbody>
 							{#each data.cart as item}
 								<tr>
-									<td
-										><img
-											src={item.imageUrl}
-											class="img-fluid"
-											alt={item.title}
-											style="width: 50px"
-										/></td
-									>
+									<td>
+										{#if item.imageUrl}
+											<img
+												src={item.imageUrl}
+												class="img-fluid"
+												alt={item.title}
+												style="width: 50px"
+											/>
+										{/if}
+									</td>
 									<td>{item.title}</td>
 									<td>{item.quantity}</td>
 									<td>${item.price * item.quantity}</td>
 								</tr>
 							{/each}
-							<!-- Repeat <tr>...</tr> for each item in the checkout -->
+							<tr>
+								<td>Total</td>
+								<td></td>
+								<td></td>
+								<td class="font-weight-bold">${data.total}</td>
+							</tr>
 						</tbody>
 					</table>
 

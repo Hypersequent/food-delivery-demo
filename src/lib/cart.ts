@@ -1,7 +1,7 @@
 import { browser } from '$app/environment'
 import { derived, writable } from 'svelte/store'
 
-type CartItem = {
+export type CartItem = {
 	id: string
 	quantity: number
 }

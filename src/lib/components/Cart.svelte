@@ -78,7 +78,7 @@
 		show = true
 	}}
 >
-	<img src="./img/cart.svg" style="width: 20px" alt="cart" />
+	<img src="{base}/img/cart.svg" style="width: 20px" alt="cart" />
 	<span class="badge badge-notify my-cart-badge">{$count}</span>
 </div>
 
@@ -112,7 +112,7 @@
 											<img src={item.imageUrl} alt={item.title} style="width: 50px" />
 										{/if}
 									</div>
-									<div class="col-4">
+									<div class="col-3">
 										{item.title}
 									</div>
 									<div class="col-3">
