@@ -1,6 +1,16 @@
-<script lang="ts">
-	import cart from '../cart'
+<script context="module" lang="ts">
 	import items from '../items'
+
+	export function getItemData(id: string) {
+		return Object.values(items)
+			.flat()
+			.find((item) => item.id === id)!
+	}
+</script>
+
+<script lang="ts">
+	import { base } from '$app/paths'
+	import cart from '../cart'
 	const count = cart.count
 
 	let show = false
@@ -46,12 +56,6 @@
 				show = !!newShow
 			},
 		}
-	}
-
-	function getItemData(id: string) {
-		return Object.values(items)
-			.flat()
-			.find((item) => item.id === id)!
 	}
 
 	function updateQuantity(e: Event, id: string) {
@@ -142,11 +146,10 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button
-					type="button"
-					class="btn btn-primary"
-					id="">Checkout</button
-				>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				{#if $count > 0}
+					<a type="button" class="btn btn-primary text-white" href="{base}/checkout">Checkout</a>
+				{/if}
 			</div>
 		</div>
 	</div>
