@@ -9,3 +9,5 @@ test-results
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+.idea/
+.vscode/
