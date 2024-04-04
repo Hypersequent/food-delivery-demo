@@ -2,6 +2,10 @@
 
 This repository contains a Food Delivery demo app, a project forked from [wowthemesnet/template-fooddelivery-bootstrap-html](https://github.com/wowthemesnet/template-fooddelivery-bootstrap-html) and rewritten in SvelteKit for QA Sphere.
 
+## Demo
+
+A live demo of the app can be found [here](https://hypersequent.github.io/food-delivery-demo/).
+
 ## Original Template Dependencies
 
 The original template used the following main dependencies:
