@@ -52,8 +52,8 @@
 		<a href="{base}/" role="button" class="button button--is-active" data-target="pizzaMenu"
 			>Pizzas</a
 		>
-		<a href="{base}/" role="button" class="button" data-target="coffeeMenu">Drinks</a>
-		<a href="{base}/" role="button" class="button" data-target="noodlesMenu">Desserts</a>
+		<a href="{base}/" role="button" class="button" data-target="drinksMenu">Drinks</a>
+		<a href="{base}/" role="button" class="button" data-target="dessertsMenu">Desserts</a>
 	</div>
 
 	<!-- Start Pizza Menu -->
@@ -82,8 +82,8 @@
 	</div>
 	<!-- End Pizza Menu -->
 
-	<!-- Start Coffee Menu -->
-	<div class="menu" id="coffeeMenu" data-aos="fade-up">
+	<!-- Start Drinks Menu -->
+	<div class="menu" id="drinksMenu" data-aos="fade-up">
 		{#each items.drinks as drink}
 			<div class="item row align-items-center">
 				<div class="col">
@@ -103,10 +103,10 @@
 			</div>
 		{/each}
 	</div>
-	<!-- End Coffee Menu -->
+	<!-- End Drinks Menu -->
 
-	<!-- Start Noodles Menu -->
-	<div class="menu" id="noodlesMenu" data-aos="fade-up">
+	<!-- Start Desserts Menu -->
+	<div class="menu" id="dessertsMenu" data-aos="fade-up">
 		{#each items.desserts as dessert}
 			<div class="item row align-items-center">
 				<div class="col">
@@ -126,6 +126,6 @@
 			</div>
 		{/each}
 	</div>
-	<!-- End Noodles Menu -->
+	<!-- End Desserts Menu -->
 </div>
 <!-- End block -->
