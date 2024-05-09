@@ -15,10 +15,10 @@
 			data-aos-duration="1000"
 			data-aos-offset="0"
 		>
-			Bistrot Français
+			Bistro Delivery
 		</h1>
 		<p class="lead text-white" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-			Elegance of French Cuisine Delivered Directly to Your Doorstep!
+			Elegance of French&amp;Italian Cuisine Delivered Directly to Your Doorstep!
 		</p>
 	</div>
 	<div class="clearfix"></div>
