@@ -4,12 +4,14 @@
 	import type { PageData } from './$types'
 
 	export let data: PageData
+	let customerName = ''
+	let customerAddress = ''
+	let paymentMethod = ''
+	let submitted = false
 
 	function onSubmit(e: SubmitEvent) {
 		e.preventDefault()
-		const form = e.target as HTMLFormElement
-		form.querySelector('.alert')!.classList.add('show')
-		form.reset()
+		submitted = true
 	}
 </script>
 
@@ -59,43 +61,60 @@
 							</tr>
 						</tbody>
 					</table>
-
-					<!-- Additional Checkout Details -->
-					<div class="form-group">
-						<label for="customerName">Name</label>
-						<input
-							type="text"
-							class="form-control"
-							id="customerName"
-							placeholder="Enter your name"
-							required
-						/>
-					</div>
-					<div class="form-group">
-						<label for="customerAddress">Address</label>
-						<input
-							type="text"
-							class="form-control"
-							id="customerAddress"
-							placeholder="Enter your address"
-							required
-						/>
-					</div>
-					<div class="form-group">
-						<label for="paymentMethod">Payment Method</label>
-						<select class="form-control" id="paymentMethod">
-							<option>Credit Card</option>
-							<option>Debit Card</option>
-							<option>PayPal</option>
-						</select>
-					</div>
-					<button type="submit" class="btn btn-dark btn-round btn-block">Place Order</button>
-					<div class="alert alert-success alert-dismissible fade mt-3" role="alert">
-						<h4 class="alert-heading">Youre order place successfully!</h4>
-						<p>Thank you for your order. We will deliver your food as soon as possible.</p>
-					</div>
+					{#if !submitted}
+						<!-- Additional Checkout Details -->
+						<div class="form-group">
+							<label for="customerName">Name</label>
+							<input
+								type="text"
+								class="form-control"
+								id="customerName"
+								placeholder="Enter your name"
+								required
+								bind:value={customerName}
+							/>
+						</div>
+						<div class="form-group">
+							<label for="customerAddress">Address</label>
+							<input
+								type="text"
+								class="form-control"
+								id="customerAddress"
+								placeholder="Enter your address"
+								required
+								bind:value={customerAddress}
+							/>
+						</div>
+						<div class="form-group">
+							<label for="paymentMethod">Payment Method</label>
+							<select class="form-control" id="paymentMethod" bind:value={paymentMethod}>
+								<option>Cash on Delivery</option>
+								<option>Card Payment on Delivery</option>
+							</select>
+						</div>
+						<button type="submit" class="btn btn-dark btn-round btn-block">Place Order</button>
+					{:else}
+						<div class="alert alert-success alert-dismissible show fade mt-3" role="alert">
+							<h4 class="alert-heading">Your order placed successfully!</h4>
+							<div>
+								Thank you, <strong>{customerName}</strong>, for your order. We will deliver your
+								food to the following address as soon as possible:
+								<div class="address">{customerAddress}</div>
+								Payment method:<strong>{paymentMethod}</strong>
+							</div>
+						</div>
+					{/if}
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
+
+<style>
+	.address {
+		font-family: 'Courier New', Courier, monospace;
+		padding-left: 10px;
+		border-left: 4px solid lightgreen;
+		margin-bottom: 5px;
+	}
+</style>
